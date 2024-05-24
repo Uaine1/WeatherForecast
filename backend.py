@@ -7,9 +7,9 @@ def get_data(place, forecast_days=None):
     url = f"http://api.openweathermap.org/data/2.5/forecast?q={place}&appid={API_KEY}"
     try:
         response = requests.get(url)
-        response.raise_for_status()  # Raise an exception for HTTP errors (e.g., 404, 500)
+        response.raise_for_status() 
         data = response.json()
-        filtered_data = data.get("list", [])  # Use .get() method to handle missing 'list' key
+        filtered_data = data.get("list", []) 
 
         if forecast_days:
             nr_values = 8 * forecast_days
